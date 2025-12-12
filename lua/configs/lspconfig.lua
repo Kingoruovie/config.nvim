@@ -5,7 +5,7 @@ local servers = {
   "cssls",
   "emmet_ls",
   "tailwindcss",
-  "ts_ls",
+  "vtsls",
   "pyright",
   "docker_compose_language_service",
   "dockerls",
@@ -14,6 +14,8 @@ local servers = {
   "bashls",
   "marksman",
   "gopls",
+  "clangd",
+  "phpactor",
 }
 vim.lsp.enable(servers)
 
