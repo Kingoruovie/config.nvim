@@ -22,6 +22,43 @@ dap.listeners.before.event_exited["dapui_config"] = function()
   dapui.close()
 end
 
+local opts = { noremap = true, silent = true }
+
+-- Toggle breakpoint
+vim.keymap.set("n", "<leader>db", function()
+  dap.toggle_breakpoint()
+end, { desc = "Toggle breakpoint" })
+
+-- Continue / Start
+vim.keymap.set("n", "<leader>dc", function()
+  dap.continue()
+end, { desc = "Continue" })
+
+-- Step Over
+vim.keymap.set("n", "<leader>do", function()
+  dap.step_over()
+end, { desc = "Step over" })
+
+-- Step Into
+vim.keymap.set("n", "<leader>di", function()
+  dap.step_into()
+end, { desc = "Step into" })
+
+-- Step Out
+vim.keymap.set("n", "<leader>dO", function()
+  dap.step_out()
+end, { desc = "Step out" })
+
+-- Keymap to terminate debugging
+vim.keymap.set("n", "<leader>dq", function()
+  require("dap").terminate()
+end, { desc = "Terminate" })
+
+-- Toggle DAP UI
+vim.keymap.set("n", "<leader>du", function()
+  dapui.toggle()
+end, { desc = "Toggle DAP UI" })
+
 -- Node,ts and js
 if not dap.adapters["pwa-node"] then
   require("dap").adapters["pwa-node"] = {
